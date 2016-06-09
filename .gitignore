@@ -1,0 +1,5 @@
+*.so
+*.swp
+cplugin_test
+.gdb_history
+
