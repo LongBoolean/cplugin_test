@@ -17,6 +17,6 @@ extern "C"
 
     void print()
     {
-        printf("Plugin A, value: %d", value);
+        printf("Plugin A, value: %d\n", value);
     }
 }
