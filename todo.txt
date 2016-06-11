@@ -1,0 +1,32 @@
+
+***** To Do List *****
+
+- Figure out a way to make sure plugins have all of the functions they need, 
+    in order to be a valid plugin. This means there should be compile errors
+    when attempting to compile the plugin if the plugin does not have the 
+    functions required.
+
+- Set up a way for the plugin to create additional functions within the 
+    plugin, that the main program will call when it decides to do so. 
+    This may need the ability for the plugin to call main program functions.
+
+- Figure out how to let the plugin call a function of the main program.
+    Only certain functions, however, are allowed to be called. Perhaps we
+    should not allow functions of the main program to be called at all?
+    Either way figure something out.
+
+- Figure out a way to have the main program load plugins from a specific 
+    directory, instead of needing the plugin paths to be hard coded. 
+
+- Strive to make error messages as helpful as possible, both when compiling
+    the plugins(I don't know how much control I have over that), and most
+    importantly, when a plugin fails to load correctly. 
+
+
+
+***** Completed Items *****
+
+- Figure out how to dynamically load a .so for use as a plugin.
+
+- Create a few initial plugins to test out different use cases. 
+    (Somewhat of an on going process)
