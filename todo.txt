@@ -15,9 +15,6 @@
     should not allow functions of the main program to be called at all?
     Either way figure something out.
 
-- Figure out a way to have the main program load plugins from a specific 
-    directory, instead of needing the plugin paths to be hard coded. 
-
 - Strive to make error messages as helpful as possible, both when compiling
     the plugins(I don't know how much control I have over that), and most
     importantly, when a plugin fails to load correctly. 
@@ -30,3 +27,6 @@
 
 - Create a few initial plugins to test out different use cases. 
     (Somewhat of an on going process)
+
+- Figure out a way to have the main program load plugins from a specific 
+    directory, instead of needing the plugin paths to be hard coded. 

@@ -1,0 +1,1 @@
+This file does not have a .so extension, so it should not be pulled in as a plugin.
