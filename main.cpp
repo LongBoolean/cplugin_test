@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <dlfcn.h>
 #include <dirent.h>
-#include <string.h>
 #include "shared.h"
 
 void 
@@ -130,8 +129,7 @@ main()
                 {
                     //add plugin to plugins array
                     plugins_arr[NUM_PLUGIN_TOTAL] = (struct plugin*)malloc(sizeof(struct plugin));
-                    strcpy(path, PLUGIN_DIR);
-                    strcat(path, dir->d_name);
+                    snprintf(path, 64,"%s%s",PLUGIN_DIR, dir->d_name);
                     create_plugin(plugins_arr[NUM_PLUGIN_TOTAL], path);
                     NUM_PLUGIN_TOTAL++;
                 }
