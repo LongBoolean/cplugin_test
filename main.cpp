@@ -108,7 +108,7 @@ check_str_inside(const char *haystack_str, const char *needle_str)
 #define NUM_PLUGIN_MAX 16
 
 global_variable const char *PLUGIN_DIR = "./plugins_bin/";
-global_variable int num_plugins = 0;
+global_variable int NUM_PLUGIN_TOTAL = 0;
 
 int 
 main()
@@ -120,20 +120,20 @@ main()
     d = opendir(PLUGIN_DIR);
     if(d)
     {
+        char path[64];
         while((dir = readdir(d)) != NULL)
         {
             if((dir->d_type == DT_REG) &&
                (check_str_inside(dir->d_name,".so")))
             {
-                //add plugin
-                if(num_plugins < NUM_PLUGIN_MAX)
+                if(NUM_PLUGIN_TOTAL < NUM_PLUGIN_MAX)
                 {
-                    plugins_arr[num_plugins] = (struct plugin*)malloc(sizeof(struct plugin));
-                    char path[64];
+                    //add plugin to plugins array
+                    plugins_arr[NUM_PLUGIN_TOTAL] = (struct plugin*)malloc(sizeof(struct plugin));
                     strcpy(path, PLUGIN_DIR);
                     strcat(path, dir->d_name);
-                    create_plugin(plugins_arr[num_plugins], path);
-                    num_plugins++;
+                    create_plugin(plugins_arr[NUM_PLUGIN_TOTAL], path);
+                    NUM_PLUGIN_TOTAL++;
                 }
                 else
                 {
@@ -145,14 +145,14 @@ main()
 
     for(int i=0; i<10; i++)
     {
-        for(int j=0; j<num_plugins; j++)
+        for(int j=0; j<NUM_PLUGIN_TOTAL; j++)
         {
             run_plugin(plugins_arr[j], i);
         }
         printf("******************************\n");
     }
 
-    for(int j=0; j<num_plugins; j++)
+    for(int j=0; j<NUM_PLUGIN_TOTAL; j++)
     {
         remove_plugin(plugins_arr[j]);
     }

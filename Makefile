@@ -9,3 +9,7 @@ debug:
 
 run:
 	./cplugin_test
+
+clean:
+	rm cplugin_test
+	rm ./plugins_bin/*.so
